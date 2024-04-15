@@ -226,6 +226,35 @@ fun nullSafety(): Unit {
     //println(str ?: "Null")
 }
 
+/**
+ * vararg
+ * */
+fun average(vararg notes: Float) : Float {
+    var average: Float = 0F;
+    for (note in notes) {
+        average += note;
+    }
+    return average/notes.size
+}
+
+/**
+ * generics
+ * */
+fun <T> average(vararg notes: T) : Double {
+    var average: Double = 0.0;
+    for (note in notes) {
+        try {
+            if (note is Double) {
+                average += note.toDouble();
+            }
+        }catch (exception: Exception) {
+            println("Fail to convert $note in Double")
+            exitProcess(1)
+        }
+    }
+    return average/notes.size
+}
+
 fun main() {
     println("Hello World!")
 
