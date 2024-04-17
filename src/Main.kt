@@ -1,4 +1,7 @@
 import java.math.BigInteger
+import java.security.Key
+import java.security.Security
+import java.util.*
 import kotlin.math.E
 import kotlin.math.PI
 import kotlin.math.max
@@ -300,6 +303,15 @@ fun main() {
     println(checkLetters("abcd"))
 
     nullSafety()
+
+    val user: User = User(UUID.randomUUID(), "27.joaogabriel@gmail.com",
+        "joaogabriel", "Key")
+
+    val another: User = User(UUID.randomUUID(), "27.joaogabriel@gmail.com",
+        "joaogabriel", "Key", "Some message")
+
+    println(user.credentials())
+    println(another.getAnotherAttr())
 }
 
 private fun printing() {
